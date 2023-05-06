@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Design</title>
+
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <style>
+body
+{
+    margin: 0;
+    padding:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: poppins,sans-serif;
+    background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK3P5AY6u9do4z6pqltsKXvwWaSjzOyBp9cA&usqp=CAU ");
+    color: #fff;
+  
+    background-attachment: fixed;
+    background-position: bottom left ;
+    background-repeat: no-repeat;
+    background-size: cover;
+            padding: 10px;
+            margin:0;
+}
+.register
+{
+    text-align: center;
+    width: 350px;
+    box-sizing: border-box;
+    padding: 30px;
+    background:transparent ;
+    border: 2px solid black;
+    
+}
+
+.register h2
+{
+
+      background-color:#42f4c2;
+      padding: 20px;
+    color:black;
+    margin: 0 0 20px;
+    padding: 0;
+    font-size: 30px;
+    text-transform: uppercase ;
+}
+
+.register .input-group
+{
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.register .input-group input
+{
+    height: 40px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+    outline: none;
+    border:1px solid #000;
+}
+
+.register .input-group span
+{
+    position: absolute;
+    top:12px;
+    left: 20px;
+    padding: 0;
+    transition: 0.5s;
+    pointer-events: none;
+    background:#fff; 
+    text-transform: uppercase;
+    color:black;
+}
+
+.register .input-group input:focus ~ span,
+.register .input-group input:valid ~ span 
+{
+    top:-12px;
+    left: -12px;
+    font-size: 12px;
+    padding: 2px 4px;
+    border: 1px solid #000;
+    background:#42f4c2; 
+}
+
+.register .input-group input[type="button"]
+{
+    background: #42f4c2;
+    border: none;
+    box-shadow: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.register .input-group input[type="button"]:hover
+{
+    background: #ffc107;
+}
+#ram{display:inline ;}
+#siya{display:none;}
+
+
+    </style>
+</head>
+<body>
+      
+       <form id="form">
+      <section id="ram">
+      <div class="register">
+      <i class='far fa-user-circle' style='font-size:84px;padding: 5px; color: #27a5df'></i>
+          <h2>Register Form</h2>
+          
+            <div class="input-group">
+ <input type="text" id="fn" required>
+             <span>First name</span>
+              </div>
+              
+              <div class="input-group">
+  <input type="text" id="ln" required>
+             <span>Last name</span>
+              </div>
+              
+               <div class="input-group">
+ <input type="text" id="fan" required>
+             <span>Father's name</span>
+              </div>
+             
+              <div class="input-group">
+ <input type="email" id="mail"  required/>
+              <span>Email Id</span>
+              </div>
+              
+              <div class="input-group">
+ <input type="number"id="mob" maxlength="10" required/>
+              <span>Mobile No.</span>
+              </div>
+              
+              <div class="input-group">
+<input type="text" id="un" required/>
+              <span>Username</span>
+              </div>
+              
+             <div class="input-group">
+             <input type="password"required="required" id="psw">
+                  <span>Password</span>
+              </div>
+
+              <div class="input-group">
+              <input type="button" value="register" onclick="register()"/>
+                </div>
+                
+             </div>
+          </section>
+          
+          <section id="siya">
+          <div class="register">
+          <i class='far fa-user-circle' style='font-size:84px;padding: 5px; color: #27a5df'></i>
+              <h1><b>Your Information</b></h1>
+              <p id="hanuman"></p>
+              <div class="input-group">
+              <input type="button" value="Home" onclick="back()">
+              
+                </div>
+                </div>
+          </section>
+          
+      </form>
+<script>
+function register(){
+    var a = document.getElementById("fn").value;
+    var b = document.getElementById("ln").value;
+    var c = document.getElementById("fan").value;
+    var e = document.getElementById("mail").value;
+    var f = document.getElementById("mob").value;
+    var g = document.getElementById("un").value;
+    var h = document.getElementById("psw").value;
+    
+    if(g.trim() != "" && h.trim() != "")
+    {
+        confirm("YOU ARE SUCCESSFULLY REGISTRATED : " + a+" "+b);
+        
+        document.getElementById("hanuman").innerHTML = "Your Registrated data is:<br><br>Your Name: <b>"+a+" "+b+"</b><br>Father's Name: <b>"+c+"</b><br>Email Id: <b>" + e + "</b><br>Mobile No.: <b>" + f + "</b><br>Username: <b>" + g + "</b><br>Password: <b>" + h + "</b>";
+        
+        document.getElementById("ram").style.display = "none";
+        document.getElementById("siya").style.display = "inline";
+    }
+    
+    else {
+        alert("Invalid Data")
+    }
+}
+function back(){
+document.getElementById("fn").value="";
+document.getElementById("ln").value="";
+document.getElementById("fan").value="";
+document.getElementById("mail").value="";
+document.getElementById("mob").value="";
+  document.getElementById("un").value="";
+  document.getElementById("psw").value="";
+  document.getElementById("hanuman").innerHTML="";
+  document.getElementById("siya").style.display="none";
+  document.getElementById("ram").style.display="inline";
+}
+</script>
+
+</body>
+</html>
